@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "VTJZCC7zCfaGt86CJVp4plwg6Tmx8gO8DGN+P1a5juDBKA1imYBPvG0m0aifhnQzSHk2/LTaBIe1z/+v+TfE/w==",
+  "success": true,
+  "projectFilePath": "D:\\JetBrainsRider\\BlazorAPP\\BlazorAPP\\BlazorAPP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Chenben Tong\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}
