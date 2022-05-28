@@ -1,0 +1,92 @@
+@using BlazorAPP.DataService
+@using Microsoft.AspNetCore.Components
+@using BlazorAPP.Data
+<h3>AddToy</h3>
+
+<h3>AddToy</h3>
+
+
+
+<div style="width:40%; margin: 100px auto;" class="main">
+    <form style="color: white">
+        <div class="a" style="float: left">
+            <div>
+                <br/>
+                <label>Id:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="Name" @bind="toy.Id"/>
+            </div>
+            <div>
+                <br/>
+                <label>Name:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="Name" @bind="toy.Name"/>
+            </div>
+            <div>
+                <br/>
+                <label>Color:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="Color" @bind="toy.Color"/>
+            </div>
+            <div>
+                <br/>
+                <label>Condition:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="Condition" @bind="toy.Condition"/>
+            </div>
+            <div>
+                <br/>
+                <label>IsFavourite:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="IsFavourite" @bind="toy.IsFavourite"/>
+            </div>
+        </div>
+        
+        <li class="nav-item">
+            <div class="item-content" >
+                <select @bind="@name" id="group" class="dropdown-toggle" data-bs-toggle="dropdown" style="font-weight: normal; text-align: center; margin-top: -10px; font-size:25px; color: #37ff00;
+                                background: transparent; border-width: 0; outline:none;">
+                    @foreach (var child in _children)
+                    {
+                        <option>@child.Name</option>
+
+                    }
+                    
+
+                </select>
+            </div>
+        </li>
+        
+      
+
+        <div class="container mt-3" style="padding-top: 20px; width: 50%">
+            <button  type="button" @onclick="addToy" style="width: 100%;">Save</button>
+        </div>
+    </form>
+</div>
+@code {
+    private Data.Toy toy = new Data.Toy();
+
+    private string name = "";
+
+    private IList<Data.Child> _children = new List<Data.Child>();
+
+    private ToyService _service = new ToyService();
+
+    private ChildService _services = new ChildService();
+
+    protected async override Task OnInitializedAsync()
+    {
+        _children = await _services.GetChildren();
+    }
+
+
+    public async Task addToy()
+    {
+        toy.Name=name;
+        
+        await _service.AddToy(toy,toy.Id);
+
+    }
+
+}

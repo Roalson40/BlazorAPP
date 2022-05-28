@@ -1,0 +1,45 @@
+@using BlazorAPP.DataService
+<h3>Child</h3>
+<div style="width:40%; margin: 100px auto;" class="main">
+    <form style="color: white">
+        <div class="a" style="float: left">
+            <div>
+                <br/>
+                <label>Name:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="Name" @bind="_child.Name"/>
+            </div>
+            <div>
+                <br/>
+                <label>Age:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="Age" @bind="_child.Age"/>
+            </div>
+            <div>
+                <br/>
+                <label>Gender:</label>
+                <br/>
+                <input style="border-radius: 10px" placeholder="Gender" @bind="_child.Gender"/>
+            </div>
+        </div>
+      
+
+        <div class="container mt-3" style="padding-top: 20px; width: 50%">
+            <button  type="button" @onclick="addChild" style="width: 100%;">Save</button>
+        </div>
+    </form>
+</div>
+@code {
+    private Data.Child _child = new Data.Child();
+
+    private ChildService _service = new ChildService();
+
+
+    public async Task addChild()
+    {
+
+        await _service.AddChild(_child);
+
+        Console.WriteLine("did");
+    }
+}

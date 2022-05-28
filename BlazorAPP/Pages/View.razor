@@ -1,0 +1,55 @@
+@using BlazorAPP.Data
+@using BlazorAPP.DataService
+<h3>View</h3>
+@if (_toys == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ToyName</th>
+            <th>Color</th>
+            <th>IsFavourite</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var toy in _toys)
+        {
+            <tr>
+                <p></p>
+                <td>@toy.Name</td>
+                <td>@toy.Color</td>
+                <td>@toy.IsFavourite</td>
+                <button @onclick="() => delete(toy.Id)">Delete</button>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@code {
+    private IList<Toy> _toys = new List<Toy>();
+
+    private IList<Data.Child> _children = new List<Data.Child>();
+
+    private ChildService _service = new ChildService();
+
+    private ToyService _services = new ToyService();
+
+    protected async override Task OnInitializedAsync()
+    {
+        _toys = await _services.GetToy();
+
+        _children = await _service.GetChildren();
+
+    }
+
+    public async void delete(int id)
+    {
+        await _services.RemoveToy(id);
+    }
+}
