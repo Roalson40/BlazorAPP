@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorAPP.Shared
+namespace BlazorAPP.Pages
 {
     #line hidden
     using System;
@@ -82,7 +82,21 @@ using BlazorAPP.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\View.razor"
+using BlazorAPP.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\View.razor"
+using BlazorAPP.DataService;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class View : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,17 +104,28 @@ using BlazorAPP.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Shared\NavMenu.razor"
+#line 34 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\View.razor"
        
-    private bool collapseNavMenu = true;
+    private IList<Toy> _toys = new List<Toy>();
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private IList<Data.Child> _children = new List<Data.Child>();
 
-    private void ToggleNavMenu()
+    private ChildService _service = new ChildService();
+
+    private ToyService _services = new ToyService();
+
+    protected async override Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        _toys = await _services.GetToy();
+
+        _children = await _service.GetChildren();
+
     }
 
+    public async void delete(int id)
+    {
+        await _services.RemoveToy(id);
+    }
 
 #line default
 #line hidden

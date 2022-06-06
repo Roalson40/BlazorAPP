@@ -4,14 +4,13 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorAPP.Shared
+namespace BlazorAPP.Pages
 {
     #line hidden
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\_Imports.razor"
 using System.Net.Http;
@@ -82,7 +81,28 @@ using BlazorAPP.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
+using BlazorAPP.DataService;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
+using Microsoft.AspNetCore.Components;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
+using BlazorAPP.Data;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class AddToy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,15 +110,30 @@ using BlazorAPP.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Shared\NavMenu.razor"
+#line 67 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
        
-    private bool collapseNavMenu = true;
+    private Data.Toy toy = new Data.Toy();
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string name = "";
 
-    private void ToggleNavMenu()
+    private IList<Data.Child> _children = new List<Data.Child>();
+
+    private ToyService _service = new ToyService();
+
+    private ChildService _services = new ChildService();
+
+    protected async override Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        _children = await _services.GetChildren();
+    }
+
+
+    public async Task addToy()
+    {
+        toy.Name=name;
+        
+        await _service.AddToy(toy,toy.Id);
+
     }
 
 

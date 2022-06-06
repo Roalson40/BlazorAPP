@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorAPP.Shared
+namespace BlazorAPP.Pages
 {
     #line hidden
     using System;
@@ -82,7 +82,14 @@ using BlazorAPP.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\Child.razor"
+using BlazorAPP.DataService;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class Child : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,17 +97,20 @@ using BlazorAPP.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Shared\NavMenu.razor"
+#line 32 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\Child.razor"
        
-    private bool collapseNavMenu = true;
+    private Data.Child _child = new Data.Child();
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private ChildService _service = new ChildService();
 
-    private void ToggleNavMenu()
+
+    public async Task addChild()
     {
-        collapseNavMenu = !collapseNavMenu;
-    }
 
+        await _service.AddChild(_child);
+
+        Console.WriteLine("did");
+    }
 
 #line default
 #line hidden
