@@ -28,7 +28,7 @@ namespace BlazorAPP.DataService
             using HttpClient client = new HttpClient();
             Task<string> stringAsync = client.GetStringAsync("https://localhost:5006/Child");
             string message = await stringAsync;
-            IList<Child> result = JsonSerializer.Deserialize<List<Child>>(message, new JsonSerializerOptions
+            IList<Child> result = JsonSerializer.Deserialize<IList<Child>>(message, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             });
