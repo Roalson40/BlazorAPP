@@ -18,7 +18,7 @@ namespace BlazorAPP.DataService
                 PropertyNameCaseInsensitive = true,
             });
             HttpContent content1 = new StringContent(adultAsJson, Encoding.UTF8, "application/json");
-            await client.PostAsync( "https://localhost:5006/Child", content1 );
+            await client.PostAsync( "https://localhost:5005/Child", content1 );
             
             Console.WriteLine("Service");
         }
@@ -26,7 +26,7 @@ namespace BlazorAPP.DataService
         public async Task<IList<Data.Child>> GetChildren()
         {
             using HttpClient client = new HttpClient();
-            Task<string> stringAsync = client.GetStringAsync("https://localhost:5006/Child");
+            Task<string> stringAsync = client.GetStringAsync("https://localhost:5005/Child");
             string message = await stringAsync;
             IList<Child> result = JsonSerializer.Deserialize<IList<Child>>(message, new JsonSerializerOptions
             {

@@ -82,26 +82,27 @@ using BlazorAPP.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
+#line 2 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
 using BlazorAPP.DataService;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
+#line 3 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
 using Microsoft.AspNetCore.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
+#line 4 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
 using BlazorAPP.Data;
 
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/AddToy")]
     public partial class AddToy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -110,7 +111,7 @@ using BlazorAPP.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 67 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
+#line 68 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\AddToy.razor"
        
     private Data.Toy toy = new Data.Toy();
 

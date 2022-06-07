@@ -56,3 +56,9 @@ D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\BlazorAPP.pdb
 D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\BlazorAPP.genruntimeconfig.cache
 D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\ref\BlazorAPP.dll
 D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\BlazorAPP.csproj.CopyComplete
+D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\RazorDeclaration\Pages\AddToy.razor.g.cs
+D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\RazorDeclaration\Pages\Child.razor.g.cs
+D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\RazorDeclaration\Pages\View.razor.g.cs
+D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\Razor\Pages\AddToy.razor.g.cs
+D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\Razor\Pages\Child.razor.g.cs
+D:\JetBrainsRider\BlazorAPP\BlazorAPP\obj\Debug\net5.0\Razor\Pages\View.razor.g.cs

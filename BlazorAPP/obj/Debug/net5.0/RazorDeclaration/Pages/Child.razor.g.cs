@@ -83,12 +83,13 @@ using BlazorAPP.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\Child.razor"
+#line 2 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\Child.razor"
 using BlazorAPP.DataService;
 
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Child")]
     public partial class Child : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -97,7 +98,7 @@ using BlazorAPP.DataService;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\Child.razor"
+#line 33 "D:\JetBrainsRider\BlazorAPP\BlazorAPP\Pages\Child.razor"
        
     private Data.Child _child = new Data.Child();
 
